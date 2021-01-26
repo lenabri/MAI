@@ -1,0 +1,11 @@
+CC = cc
+CFLAGS = -g -std=c99
+
+main.out: main.o deque.o 
+	$(CC) $^ -o main
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm *.o

@@ -1,0 +1,143 @@
+\documentclass[10pt]{book}
+\usepackage[a5paper, top=40pt, bottom=40pt, left=40pt, right=40pt]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\textbf{\thepage}}
+\fancyhead[CE]{\scriptsize МЕТРИЧЕСКИЕ ТЕХНОЛОГИИ ПРОСТРАНСТВА}
+\fancyhead[RE]{\scriptsize [гл. II}
+\fancyhead[CO]{\scriptsize ПРИНЦИП СЖИМАЮЩИХ ОТОБРАЖЕНИЙ И ЕГО ПРИМЕНЕНИЯ}
+\fancyhead[LO]{\scriptsize\textsection 4]}
+\renewcommand{\headrulewidth}{0pt}
+\setcounter{page}{76}
+\usepackage{caption}
+\fancyfoot{}
+\setcounter{figure}{8}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\begin{document}
+	\noindent сжимающих отображений дает и фактический метод приближенного нахождения этого решения (м\,е\,т\,о\,д\, \,п\,о\,с\,л\,е\,д\,о\,в\,а\,т\,е\,л\,ь\,н\,ы\,х\, \,п\,р\,и\,б\,л\,и\,ж\,е\,-н\,и\,й). Рассмотрим следующие простые примеры.
+	
+	\par 1. Пусть $f$ - функция, которая определена на сегменте $[a, b]$, удовлетворяет условию Липшица
+	$$|f(x_2) - f(x_1)| \leqslant K|x_2 - x_1|,$$
+	с константой K < 1 и отображает сегмент $[a, b]$ в себя. Тогда $f$ есть сжимающее отображение и, согласно доказанной теореме, последовательность $x_0$, $x_1 = f(x_0)$, $x_2 = f(x_1)$, $\dots$ сходится к единственному корню уравнения $x = f(x)$.
+	
+	\par В частности, условие сжимаемости выполнено, если функция имеет на сегменте $[a, b]$ производную $f'(x)$, причем $|f'(x)| \leqslant K < 1$.
+	
+	\par На рис. 9 и 10 изображен ход последовательных приближений в случае $0 < f'(x) < 1$ и в случае $-1 < f'(x) < 0$.
+	
+	\begin{figure}[h]
+	\centering
+	\begin{minipage}{.5\textwidth}
+  		\centering
+  		\begin{tikzpicture}[scale=0.9][domain=0:5]
+  			\draw[line width=0.3mm,->] (0,0) -- (4.6,0) node[right] {$x$};
+  			\draw[line width=0.3mm,->] (0,0) -- (0,4.6) node[above] {$y$};
+  			\draw[thin] (0,0) -- (0,0) node[below] {\scriptsize$0$};
+  			
+  			\draw[thin] (4,3) -- (0,3) node[left] {\scriptsize$f(b)$};
+  				\draw[thin] (1.78,1.42) -- (1.43,1.42);
+  				\draw[thin] (2.46,1.78) -- (1.78,1.78);
+  				\draw[thin] (3.394,2.46) -- (2.46,2.46);
+  			\draw[thin] (0.8,1.1) -- (0,1.1) node[left] {\scriptsize$f(a)$};
+  			\draw[thin] (0.8,0.8) -- (0,0.8) node[left] {\scriptsize$a$};
+  			\draw[thin] (4,4) -- (0,4) node[left] {\scriptsize$b$};
+  			
+  			\draw[thin] (0.8,4) -- (0.8,0) node[below] {\scriptsize$a$};
+  			\draw[dashed] (1.23,1.17) -- (1.23,0) node[below] {\tiny $x$\,\,};
+  			\draw[dashed] (1.43,1.25) -- (1.43,0) node[below] {\tiny \,\,\,$x_3$};
+  				\draw[thin] (1.43,1.43) -- (1.43,1.285);
+  			\draw[dashed] (1.78,1.39) -- (1.78,0) node[below] {\tiny \,\,\,\,$x_2$};
+  				\draw[thin] (1.78,1.78) -- (1.78,1.42);
+  			\draw[dashed] (2.466,1.73) -- (2.466,0) node[below] {\scriptsize$x_1$};
+  				\draw[thin] (2.466,2.46) -- (2.466,1.78);
+  			\draw[dashed] (3.4,2.4) -- (3.4,0) node[below] {\scriptsize$x_0$};
+  			\draw[thin] (4,4) -- (4,0) node[below] {\scriptsize$b$};
+  			
+  			
+ 			\draw[line width=0.45mm][domain=0:4.3] plot (\x, \x) node[right] {\scriptsize$y =x$};
+ 			\draw[line width=0.45mm, scale=0.5, domain = 1.6:7.97, variable=\x] plot ({\x},{\x*\x/16.1+2.05}) node[right] {\scriptsize$y = f(x)$};
+		\end{tikzpicture}
+  		\caption{}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+  		\centering
+  		\begin{tikzpicture}[scale=0.9][domain=0:4]
+  			\draw[line width=0.3mm,->] (0,0) -- (4.6,0) node[right] {$x$};
+  			\draw[line width=0.3mm,,->] (0,0) -- (0,4.6) node[above] {$y$};
+  			\draw[thin] (0,0) -- (0,0) node[below] {\scriptsize$0$};
+  			\draw[thin] (0.8,4) -- (0.8,0) node[below] {\scriptsize$a$};
+  			\draw[thin] (1.24,2.987) -- (1.24,0) node[below] {\scriptsize$x_0$};
+  				\draw[thin] (1.88,2.45) -- (1.88,1.877);
+  				\draw[thin] (2.45,2.45) -- (2.45,2.1);
+  				\draw[dashed] (2.45,2.1) -- (2.45,0) node[below] {\,\,\,\,\tiny$x_3$};
+  				\draw[dashed] (2.23,2.2) -- (2.23,0) node[below] {\,\,\tiny$x$};
+  					\draw[thin] (2.23,2.22) -- (2.23,2.1);
+  				\draw[dashed] (2.1,2.1) -- (2.1,0) node[below] {\tiny$x_4$};
+  				\draw[dashed] (1.88,1.86) -- (1.88,0) node[below] {\tiny$x_2$\,\,\,};
+  			\draw[thin] (4,4) -- (0,4) node[left] {\scriptsize$b$};
+  			\draw[thin] (4,4) -- (4,0) node[below] {\scriptsize$b$};
+  			\draw[dashed] (2.98,1.7) -- (2.98,0) node[below] {\scriptsize$x_1$};
+  				\draw[thin] (2.98,2.97) -- (2.98,1.7);
+  				\draw[thin] (2.45,2.45) -- (1.877,2.45);
+  				
+  			\draw[thin] (0.8,3.4) -- (0,3.4) node[left] {\scriptsize$f(a)$};
+  			\draw[thin] (2.98,2.98) -- (1.24,2.98);
+  			\draw[thin] (4,1.7) -- (0,1.7) node[left] {\scriptsize$f(b)$};
+  				\draw[thin] (2.45,2.1) -- (2.1,2.1);
+  				\draw[thin] (2.988,1.877) -- (1.88,1.877);
+  			\draw[thin] (0.8,0.8) -- (0,0.8) node[left] {\scriptsize$a$};
+  			
+  			\draw[line width=0.45mm][domain=0:4.3] plot (\x, \x) node[right] {\scriptsize$y =x$};
+  			\draw[line width=0.45mm,scale=0.5, domain = -6.4:0, variable=\x] plot ({\x + 8},{\x*\x/12+3.4}) node[right] {\scriptsize$y = f(x)$};
+		\end{tikzpicture}
+  		\caption{}
+	\end{minipage}
+	\end{figure}
+
+
+	\par Пусть теперь мы имеем дело с уравнением вида $F(x) = 0$, причём $F(a) < 0$, $F(b) > 0$ и $0 < K_1 \leqslant F'(x) \leqslant K_2$ на $[a, b]$. Введём функцию $f(x) = x - \lambda F(x)$ и будем искать решение уравнения $x = f(x)$, равносильного уравнению $F(x) = 0$ при $\lambda \neq 0$. Так как $f'(x) = 1 - \lambda F'(x)$, то $1 - \lambda K_2 \leqslant f'(x) \leqslant 1 - \lambda K_1$ и нетрудно подобрать число $\lambda$ так, чтобы можно было действовать методом последовательных приближений. Это - распространенный метод отыскания корня.
+	\par 2. Рассмотрим отображение $A$ $n$-мерного пространства в себя, задаваемое системой линейных уравнений
+	$$y_i = \textstyle\sum\limits_{j = 1}^n a_{ij}x_i + b_i \qquad (i = 1,\,2,\,\dots, \,n).$$
+	
+	\par Если $A$ есть сжатие, то мы можем применить метод последовательных приближений к решению уравнения $x = Ax$.
+	\par При каких же условиях отображение $A$ будет сжатием? Ответ на этот вопрос зависит от метрики в пространстве. Рассмотрим три варианта.
+	\par а) Пространство $\boldsymbol{R}_{\infty}^n$, то есть $\rho(x, y) = \max\limits_{1 \leqslant i \leqslant n} |x_i - y_i|$;
+	\begin{multline*}
+		\textstyle\rho(y', y'') = \max\limits_i|y'_i - y''_i| = \max\limits_i|\sum\limits_ja_{ij}(x'_j -x''_j)| 
+		\leqslant \max\limits_i \sum\limits_j|a_{ij}| |x'_j - x''_j| \leqslant \\ \textstyle\leqslant\max\limits_i \sum\limits_j|a_{ij}|\max\limits_j|x'_j - x''_j|
+		= (\max\limits_i \sum\limits_j |a_{ij}|)\rho(x', x'').
+	\end{multline*}
+	
+	\noindent Отсюда условие сжимаемости
+	$$\textstyle\sum\limits_{j = 1}^n|a_{ij}| \leqslant \alpha < 1, \qquad i = 1,\,\dots, \,n. \eqno (2)$$
+	
+	\par б) Пространство $\boldsymbol{R}_1^n$, т. е. $\rho(x, y) = \sum\limits_{i = 1}^n|x_i - y_i|$;
+		\begin{multline*}
+			\textstyle\rho(y', y'') = \sum\limits_i|y'_i - y''_i| = \sum\limits_i|\sum\limits_ja_{ij}(x'_j - x''_j)|\leqslant \\ \textstyle\leqslant \sum\limits_i\sum\limits_j|a_{ij}||x'_j - x''_j| \leqslant (\max\limits_j\sum\limits_i|a_{ij}|)\rho(x', x'').
+		\end{multline*}
+	
+	\noindent Отсюда условие сжимаемости
+	$$\textstyle\sum\limits_i|a_{ij}| \leqslant \alpha<1, \qquad i = 1, \,\dots, \,n. \eqno (3)$$
+	
+	\par в) Простраство $\boldsymbol{R}^n$, т. е. $\rho(x, y) = \sqrt{\sum\limits_{i = 1}^n(x_i-y_i)^2}$. На основании неравенства Коши-Буняковского имеем
+	$$\textstyle\rho^2(y', y'') = \sum\limits_i (\sum\limits_ja_{ij}(x'_j - x''_j))^2 \leqslant (\sum\limits_i\sum\limits_ja_{ij}^2)\rho^2(x', x'').$$
+	\par Отсюда условие сжимаемости
+	$$\textstyle\sum\limits_i\sum\limits_ja_{ij}^2 \leqslant \alpha < 1. \eqno (4)$$
+	\par Таким образом, если выполнено хотя бы одно из условий \footnote{
+		) В частности из любого из условий (2) - (4) вытекает, что
+		\[
+			\begin{vmatrix}
+				a_{11}-1 & a_{12} & \dots & a_{1n}\\
+				a_{21} & a_{22}-1 & \dots & a_{2n}\\
+				\hdotsfor{4} \\
+				a_{n1} & a_{n2} & \dots & a_{nn}-1\\
+			\end{vmatrix} \neq 0
+		\]
+	}) (2) - (4), то существует одна и только одна точка $(x_1, x_2, \dots, x_n$)
+\end{document}
